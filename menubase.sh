@@ -20,11 +20,11 @@ while :; do
     echo "13. Poner en marcha otra vez un contenedor" 
     echo "14. Eliminar un contenedor parado" 
     echo "15.  Ver los logs de un contenedor" 
-    echo "16. " 
-    echo "17. " 
-    echo "18. " 
-    echo "19. " 
-    echo "20. " 
+    echo "16. Ver el estado completo de todas las imagenes" 
+    echo "17. Descargar imagen node:16 docker" 
+    echo "18. Descargar imagen mongo docker" 
+    echo "19. CEAMOS UN CONTENEDOR:" 
+    echo "20. iniciar contenedor con el id de :docker" 
     echo "21. " 
 
 
@@ -126,32 +126,36 @@ while :; do
         sudo docker logs $contenedor
         read foo
         ;;
-        16)
-        echo ""
-        
+    16)
+        echo "Ver el estado completo de todas las imagenes"
+        docker images
         read foo
         ;;
 
     17)
-        echo ""
-        
+        echo "Descargar imagen node:16 docker"
+        docker pull node:16
         read foo
         ;;
 
     18)
-        echo ""
-        
+        echo "Descargar imagen mongo docker"
+        docker pull mongo
         read foo
         ;;
 
     19)
-        echo ""
-        
+        echo "CEAMOS UN CONTENEDOR:"
+        docker container create mongo
+        # docker create mongo
         read foo
         ;;
 
     20)
-        echo ""
+        echo "iniciar contenedor con el id de :docker"
+        echo "Introduce el ID o nombre del contenedor: "
+        read contenedor
+        sudo docker start $contenedor
         
         read foo
         ;;
