@@ -79,47 +79,47 @@ sudo docker inspect <id o nombre del contenedor>"
         ;;
         9)
         echo "Listar los contenedores que se encuentren en funcionamientos"
-        docker ps
+        sudo docker ps
         read foo
         ;;
     10)
         echo "Listar TODOS los contenedores (Parados y en funcionamiento)"
-        docker ps -a
+        sudo docker ps -a
         read foo
         ;;
     11)
         echo "Ver información de un contenedor: sudo docker inspect <id o nombre del contenedor>"
         echo "Introduce el ID o nombre del contenedor: "
         read contenedor
-        docker inspect $contenedor
+        sudo docker inspect $contenedor
         read foo
         ;;
     12)
         echo "Parar un contenedor: sudo docker stop <id o nombre del contenedor>"
         echo "Introduce el ID o nombre del contenedor: "
         read contenedor
-        docker stop $contenedor
+        sudo docker stop $contenedor
         read foo
         ;;
     13)
         echo "Poner en marcha otra vez un contenedor: sudo docker start <id o nombre del contenedor>"
         echo "Introduce el ID o nombre del contenedor: "
         read contenedor
-        docker start $contenedor
+        sudo docker start $contenedor
         read foo
         ;;
     14)
         echo "Eliminar un contenedor parado: sudo docker rm <id o nombre del contenedor>"
         echo "Introduce el ID o nombre del contenedor: "
         read contenedor
-        docker rm $contenedor
+        sudo docker rm $contenedor
         read foo
         ;;
     15)
         echo "Ver los logs de un contenedor: sudo docker logs <id o nombre del contenedor>"
         echo "Introduce el ID o nombre del contenedor: "
         read contenedor
-        docker logs $contenedor
+        sudo docker logs $contenedor
         read foo
         ;;
 
