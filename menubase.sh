@@ -9,19 +9,23 @@ while :; do
     echo "1. Mostrar directorio"
     echo "2. Mostrar calendario"
     echo "3. Mostrar dato"
-    echo "5. Añadir echo nº para esta parte del menu"
+    echo "5. Crear 1ºparte Añadir echo nº para esta parte del menu"
     echo "6. Arranque de contenedores" 
     echo "7. Crear 2ºparte del menu parte de abajo de case" 
     echo "8. Ver 2º resultado opcion 7 en archivo resultado2.txt" 
     echo "9. Listar los contenedores que se encuentren en funcionamientos" 
     echo "10. Listar TODOS los contenedores(Parados y en funcionamiento)" 
-    echo "11. Ver información de un contenedor
-sudo docker inspect <id o nombre del contenedor>" 
+    echo "11. Ver información de un contenedorsudo docker inspect <id o nombre del contenedor>" 
     echo "12. Parar un contenedor" 
     echo "13. Poner en marcha otra vez un contenedor" 
     echo "14. Eliminar un contenedor parado" 
     echo "15.  Ver los logs de un contenedor" 
-
+    echo "16. " 
+    echo "17. " 
+    echo "18. " 
+    echo "19. " 
+    echo "20. " 
+    echo "21. " 
 
 
     echo "4. Salir"
@@ -122,7 +126,53 @@ sudo docker inspect <id o nombre del contenedor>"
         sudo docker logs $contenedor
         read foo
         ;;
+        16)
+        echo ""
+        
+        read foo
+        ;;
 
+    17)
+        echo ""
+        
+        read foo
+        ;;
+
+    18)
+        echo ""
+        
+        read foo
+        ;;
+
+    19)
+        echo ""
+        
+        read foo
+        ;;
+
+    20)
+        echo ""
+        
+        read foo
+        ;;
+
+    20)
+        echo ""
+        
+        read foo
+        ;;
+
+    21)
+        echo ""
+        
+        read foo
+        ;;
+
+    22)
+        echo ""
+        
+        read foo
+        ;;
 
     4) exit 0 ;;
     #Alerta

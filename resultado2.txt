@@ -82,3 +82,69 @@
         read foo
         ;;
 
+20)
+        echo ""
+        
+        read foo
+        ;;
+
+21)
+        echo ""
+        
+        read foo
+        ;;
+
+22)
+        echo ""
+        
+        read foo
+        ;;
+
+23)
+        echo ""
+        
+        read foo
+        ;;
+
+24)
+        echo ""
+        
+        read foo
+        ;;
+
+25)
+        echo ""
+        
+        read foo
+        ;;
+
+26)
+        echo ""
+        
+        read foo
+        ;;
+
+27)
+        echo ""
+        
+        read foo
+        ;;
+
+28)
+        echo ""
+        
+        read foo
+        ;;
+
+29)
+        echo ""
+        
+        read foo
+        ;;
+
+30)
+        echo ""
+        
+        read foo
+        ;;
+
