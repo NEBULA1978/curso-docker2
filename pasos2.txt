@@ -1,0 +1,53 @@
+Instalación
+
+Lo primero que hemos comentado es como debemos instalarlo. Hoy en dí­a todas las distribuciones de Linux tienen entre sus paquetes Docker. De esta manera, si estamos trabajando con alguna distribución basada en Debian podemos hacer 'sudo apt-get install docker-io' o si estamos con alguna distribución basada en Red Hat 'yum install docker-io'.
+
+Si lo que queremos es asegurarnos de tener la última versión disponible podemos hacer uso de la documentación oficial de docker en este enlace: https://docs.docker.com/install/.
+
+Esto nos instalará tanto Docker Engine(Motor de docker) como el cliente(Utilidad de lí­nea de comandos) con el que interactuamos con Docker.
+
+Arranque de contenedores
+
+Arrancar contenedores es muy fácil a través del cliente en lí­nea de comando. Tal como explicamos en el ví­deo podemos arrancar un contenedor con un servidor Apache, utilizando la imagen 'httpd:latest':
+
+# Arrancar contenedor 'sudo docker run <nombre imagen>'
+sudo docker run httpd:latest
+
+En el ví­deo también hemos arrancado contenedores con Ubuntu o Fedora, en este caso, al arrancar un terminal, utilizamos los parámetros '-it' para habilitar el modo interactivo y asignarle un pseudo tty.
+
+# Arrancar contenedor con Ubuntu
+sudo docker run -it ubuntu:latest
+
+# Arrancar conteneodr con Fedora
+sudo docker run -it fedora:latest /bin/bash
+
+Hemos explicado también como las imágenes se descargaban del 'registry'(repositorio de imágenes) de Docker https://hub.docker.com. Para mas adelante dejamos el como crear nuestro propio 'registry' o utilizar el servicio de terceros.
+
+Otros comandos interesantes
+
+Además de la introducción y como arrancar contenedores hemos visto otros comandos interesantes de docker:
+
+# Listar los contenedores que se encuentren en funcionamientos
+sudo docker ps
+
+# Listar TODOS los contenedores(Parados y en funcionamiento)
+sudo docker ps -a
+
+# Ver información de un contenedor
+sudo docker inspect <id o nombre del contenedor>
+
+# Parar un contenedor
+sudo docker stop <id o nombre del contenedor>
+
+# Poner en marcha otra vez un contenedor
+sudo docker start <id o nombre del contenedor>
+
+# Eliminar un contenedor parado
+sudo docker rm <id o nombre del contenedor>
+
+# Ver los logs de un contenedor
+sudo docker logs <id o nombre del contenedor>
+
+Espero que hayáis disfrutado del capí­tulo de hoy y que tengáis ganas de mas para el próximo :D . Aquí­ os dejo la imagen con la arquitectura de Docker(No se si se ha visto muy bien en el ví­deo):
+
+Arquitectura Docker

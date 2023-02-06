@@ -1,0 +1,197 @@
+docker images
+nos devuelve un estado completo detodas las imagenes
+
+Descargar imagen docker
+docker pull node
+
+docker pull node:16
+
+eliminar imagenes de docker
+docker image rm node
+
+Descargar imagen docker
+
+docker pull mongo
+
+CEAMOS UN CONTENEDOR:
+docker container create mongo
+docker create mongo
+
+iniciar contenedor con el id de :docker create mongo
+docker start ID(docker create mongo)
+
+Ver el contenedor que esta iniciado:
+docker ps
+
+Parar el contenedor:
+docker stop (id(contenedor))
+
+Mostar todos los contenedores que se encuentran en la pc:
+docker ps -a
+
+Eliminar contenedor con el nombre de contenedor
+docker rm (nombre contenedor)
+
+crear contenedor poniendole el nombre:
+docker create --name monguito mongo(nos devuelve el id)
+
+nebula@sytem:~/Imágenes/curso docker$ docker create --name monguito mongo
+969e21681a62c4bd9871d0ba7e34531102c16a8002060760427ebf18ac64d845
+nebula@sytem:~/Imágenes/curso docker$ 
+
+nebula@sytem:~/Imágenes/curso docker$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS         PORTS       NAMES
+969e21681a62   mongo     "docker-entrypoint.s…"   33 seconds ago   Up 7 seconds   27017/tcp   monguito
+nebula@sytem:~/Imágenes/curso docker$ 
+
+CREAMOS UN CONTENEDOR MAPEANDO UN PUERTO:
+            (port-pc) (port-docker)
+docker create -p27017:27017 --name monguito mongo
+
+VER LOS  logs de un contenedor:
+docker logs monguito
+nebula@sytem:~/Imágenes/curso docker$ docker logs monguito --follow
+{"t":{"$date":"2023-01-23T18:58:15.468+00:00"},"s":"I",  "c":"CONTROL",  "id":23285,   "ctx":"-","msg":"Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+{"t":{"$date":"2023-01-23T18:58:15.468+00:00"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"-","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":17},"outgoing":{"minWireVersion":6,"maxWireVersion":17},"isInternalClient":true}}}
+{"t":{"$date":"2023-01-23T18:58:15.470+00:00"},"s":"I",  "c":"NETWORK",  "id":4648601, "ctx":"main","msg":"Implicit TCP FastOpen unavailable. If TCP FastOpen is required, set tcpFastOpenServer, tcpFastOpenClient, and tcpFastOpenQueueSize."}
+{"t":{"$date":"2023-01-23T18:58:15.471+00:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationDonorService","namespace":"config.tenantMigrationDonors"}}
+{"t":{"$date":"2023-01-23T18:58:15.471+00:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationRecipientService","namespace":"config.tenantMigrationRecipients"}}
+{"t":{"$date":"2023-01-23T18:58:15.471+00:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"ShardSplitDonorService","namespace":"config.tenantSplitDonors"}}
+{"t":{"$date":"2023-01-23T18:58:15.471+00:00"},"s":"I",  "c":"CONTROL",  "id":5945603, "ctx":"main","msg":"Multi threading initialized"}
+{"t":{"$date":"2023-01-23T18:58:15.472+00:00"},"s":"I",  "c":"CONTROL",  "id":4615611, "ctx":"initandlisten","msg":"MongoDB starting","attr":{"pid":1,"port":27017,"dbPath":"/data/db","architecture":"64-bit","host":"ebc2d4b1a7e4"}}
+{"t":{"$date":"2023-01-23T18:58:15.472+00:00"},"s":"I",  "c":"CONTROL",  "id":23403,   "ctx":"initandlisten","msg":"Build Info","attr":{"buildInfo":{"version":"6.0.3","gitVersion":"f803681c3ae19817d31958965850193de067c516","openSSLVersion":"OpenSSL 1.1.1f  31 Mar 2020","modules":[],"allocator":"tcmalloc","environment":{"distmod":"ubuntu2004","distarch":"x86_64","target_arch":"x86_64"}}}}
+{"t":{"$date":"2023-01-23T18:58:15.472+00:00"},"s":"I",  "c":"CONTROL",  "id":51765,   "ctx":"initandlisten","msg":"Operating System","attr":{"os":{"name":"Ubuntu","version":"20.04"}}}
+{"t":{"$date":"2023-01-23T18:58:15.472+00:00"},"s":"I",  "c":"CONTROL",  "id":21951,   "ctx":"initandlisten","msg":"Options set by command line","attr":{"options":{"net":{"bindIp":"*"}}}}
+{"t":{"$date":"2023-01-23T18:58:15.472+00:00"},"s":"I",  "c":"STORAGE",  "id":22297,   "ctx":"initandlisten","msg":"Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem","tags":["startupWarnings"]}
+{"t":{"$date":"2023-01-23T18:58:15.472+00:00"},"s":"I",  "c":"STORAGE",  "id":22315,   "ctx":"initandlisten","msg":"Opening WiredTiger","attr":{"config":"create,cache_size=2416M,session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,remove=true,path=journal,compressor=snappy),builtin_extension_config=(zstd=(compression_level=6)),file_manager=(close_idle_time=600,close_scan_interval=10,close_handle_minimum=2000),statistics_log=(wait=0),json_output=(error,message),verbose=[recovery_progress:1,checkpoint_progress:1,compact_progress:1,backup:0,checkpoint:0,compact:0,evict:0,history_store:0,recovery:0,rts:0,salvage:0,tiered:0,timestamp:0,transaction:0,verify:0,log:0],"}}
+{"t":{"$date":"2023-01-23T18:58:16.145+00:00"},"s":"I",  "c":"STORAGE",  "id":4795906, "ctx":"initandlisten","msg":"WiredTiger opened","attr":{"durationMillis":673}}
+{"t":{"$date":"2023-01-23T18:58:16.145+00:00"},"s":"I",  "c":"RECOVERY", "id":23987,   "ctx":"initandlisten","msg":"WiredTiger recoveryTimestamp","attr":{"recoveryTimestamp":{"$timestamp":{"t":0,"i":0}}}}
+{"t":{"$date":"2023-01-23T18:58:16.194+00:00"},"s":"W",  "c":"CONTROL",  "id":22120,   "ctx":"initandlisten","msg":"Access control is not enabled for the database. Read and write access to data and configuration is unrestricted","tags":["startupWarnings"]}
+{"t":{"$date":"2023-01-23T18:58:16.194+00:00"},"s":"W",  "c":"CONTROL",  "id":5123300, "ctx":"initandlisten","msg":"vm.max_map_count is too low","attr":{"currentValue":65530,"recommendedMinimum":1677720,"maxConns":838860},"tags":["startupWarnings"]}
+{"t":{"$date":"2023-01-23T18:58:16.194+00:00"},"s":"I",  "c":"STORAGE",  "id":20320,   "ctx":"initandlisten","msg":"createCollection","attr":{"namespace":"admin.system.version","uuidDisposition":"provided","uuid":{"uuid":{"$uuid":"dbb4faeb-4d2d-4736-9cae-13d792aacea1"}},"options":{"uuid":{"$uuid":"dbb4faeb-4d2d-4736-9cae-13d792aacea1"}}}}
+{"t":{"$date":"2023-01-23T18:58:16.217+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"initandlisten","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"dbb4faeb-4d2d-4736-9cae-13d792aacea1"}},"namespace":"admin.system.version","index":"_id_","ident":"index-1-5141565125097741974","collectionIdent":"collection-0-5141565125097741974","commitTimestamp":null}}
+{"t":{"$date":"2023-01-23T18:58:16.217+00:00"},"s":"I",  "c":"REPL",     "id":20459,   "ctx":"initandlisten","msg":"Setting featureCompatibilityVersion","attr":{"newVersion":"6.0"}}
+{"t":{"$date":"2023-01-23T18:58:16.217+00:00"},"s":"I",  "c":"REPL",     "id":5853300, "ctx":"initandlisten","msg":"current featureCompatibilityVersion value","attr":{"featureCompatibilityVersion":"6.0","context":"setFCV"}}
+{"t":{"$date":"2023-01-23T18:58:16.217+00:00"},"s":"I",  "c":"NETWORK",  "id":4915702, "ctx":"initandlisten","msg":"Updated wire specification","attr":{"oldSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":17},"outgoing":{"minWireVersion":6,"maxWireVersion":17},"isInternalClient":true},"newSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":17,"maxWireVersion":17},"outgoing":{"minWireVersion":17,"maxWireVersion":17},"isInternalClient":true}}}
+{"t":{"$date":"2023-01-23T18:58:16.217+00:00"},"s":"I",  "c":"NETWORK",  "id":4915702, "ctx":"initandlisten","msg":"Updated wire specification","attr":{"oldSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":17,"maxWireVersion":17},"outgoing":{"minWireVersion":17,"maxWireVersion":17},"isInternalClient":true},"newSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":17,"maxWireVersion":17},"outgoing":{"minWireVersion":17,"maxWireVersion":17},"isInternalClient":true}}}
+{"t":{"$date":"2023-01-23T18:58:16.217+00:00"},"s":"I",  "c":"REPL",     "id":5853300, "ctx":"initandlisten","msg":"current featureCompatibilityVersion value","attr":{"featureCompatibilityVersion":"6.0","context":"startup"}}
+{"t":{"$date":"2023-01-23T18:58:16.217+00:00"},"s":"I",  "c":"STORAGE",  "id":5071100, "ctx":"initandlisten","msg":"Clearing temp directory"}
+{"t":{"$date":"2023-01-23T18:58:16.217+00:00"},"s":"I",  "c":"CONTROL",  "id":20536,   "ctx":"initandlisten","msg":"Flow Control is enabled on this deployment"}
+{"t":{"$date":"2023-01-23T18:58:16.217+00:00"},"s":"I",  "c":"FTDC",     "id":20625,   "ctx":"initandlisten","msg":"Initializing full-time diagnostic data capture","attr":{"dataDirectory":"/data/db/diagnostic.data"}}
+{"t":{"$date":"2023-01-23T18:58:16.219+00:00"},"s":"I",  "c":"STORAGE",  "id":20320,   "ctx":"initandlisten","msg":"createCollection","attr":{"namespace":"local.startup_log","uuidDisposition":"generated","uuid":{"uuid":{"$uuid":"d75b7ceb-1c81-4673-8330-c43b3a6225ae"}},"options":{"capped":true,"size":10485760}}}
+{"t":{"$date":"2023-01-23T18:58:16.244+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"initandlisten","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"d75b7ceb-1c81-4673-8330-c43b3a6225ae"}},"namespace":"local.startup_log","index":"_id_","ident":"index-3-5141565125097741974","collectionIdent":"collection-2-5141565125097741974","commitTimestamp":null}}
+{"t":{"$date":"2023-01-23T18:58:16.245+00:00"},"s":"I",  "c":"REPL",     "id":6015317, "ctx":"initandlisten","msg":"Setting new configuration state","attr":{"newState":"ConfigReplicationDisabled","oldState":"ConfigPreStart"}}
+{"t":{"$date":"2023-01-23T18:58:16.245+00:00"},"s":"I",  "c":"STORAGE",  "id":22262,   "ctx":"initandlisten","msg":"Timestamp monitor starting"}
+{"t":{"$date":"2023-01-23T18:58:16.246+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"/tmp/mongodb-27017.sock"}}
+{"t":{"$date":"2023-01-23T18:58:16.246+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"0.0.0.0"}}
+{"t":{"$date":"2023-01-23T18:58:16.246+00:00"},"s":"I",  "c":"NETWORK",  "id":23016,   "ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}
+{"t":{"$date":"2023-01-23T18:58:16.246+00:00"},"s":"I",  "c":"CONTROL",  "id":20712,   "ctx":"LogicalSessionCacheReap","msg":"Sessions collection is not set up; waiting until next sessions reap interval","attr":{"error":"NamespaceNotFound: config.system.sessions does not exist"}}
+{"t":{"$date":"2023-01-23T18:58:16.246+00:00"},"s":"I",  "c":"STORAGE",  "id":20320,   "ctx":"LogicalSessionCacheRefresh","msg":"createCollection","attr":{"namespace":"config.system.sessions","uuidDisposition":"generated","uuid":{"uuid":{"$uuid":"4aa86e5e-6dee-4d4b-93ae-06373c4bed60"}},"options":{}}}
+{"t":{"$date":"2023-01-23T18:58:16.285+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"LogicalSessionCacheRefresh","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"4aa86e5e-6dee-4d4b-93ae-06373c4bed60"}},"namespace":"config.system.sessions","index":"_id_","ident":"index-5-5141565125097741974","collectionIdent":"collection-4-5141565125097741974","commitTimestamp":null}}
+{"t":{"$date":"2023-01-23T18:58:16.285+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"LogicalSessionCacheRefresh","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"4aa86e5e-6dee-4d4b-93ae-06373c4bed60"}},"namespace":"config.system.sessions","index":"lsidTTLIndex","ident":"index-6-5141565125097741974","collectionIdent":"collection-4-5141565125097741974","commitTimestamp":null}}
+{"t":{"$date":"2023-01-23T19:01:53.431+00:00"},"s":"I",  "c":"CONTROL",  "id":23377,   "ctx":"SignalHandler","msg":"Received signal","attr":{"signal":15,"error":"Terminated"}}
+{"t":{"$date":"2023-01-23T19:01:53.431+00:00"},"s":"I",  "c":"CONTROL",  "id":23378,   "ctx":"SignalHandler","msg":"Signal was sent by kill(2)","attr":{"pid":0,"uid":0}}
+{"t":{"$date":"2023-01-23T19:01:53.431+00:00"},"s":"I",  "c":"CONTROL",  "id":23381,   "ctx":"SignalHandler","msg":"will terminate after current cmd ends"}
+{"t":{"$date":"2023-01-23T19:01:53.431+00:00"},"s":"I",  "c":"REPL",     "id":4784900, "ctx":"SignalHandler","msg":"Stepping down the ReplicationCoordinator for shutdown","attr":{"waitTimeMillis":15000}}
+{"t":{"$date":"2023-01-23T19:01:53.431+00:00"},"s":"I",  "c":"REPL",     "id":4794602, "ctx":"SignalHandler","msg":"Attempting to enter quiesce mode"}
+{"t":{"$date":"2023-01-23T19:01:53.431+00:00"},"s":"I",  "c":"-",        "id":6371601, "ctx":"SignalHandler","msg":"Shutting down the FLE Crud thread pool"}
+{"t":{"$date":"2023-01-23T19:01:53.431+00:00"},"s":"I",  "c":"COMMAND",  "id":4784901, "ctx":"SignalHandler","msg":"Shutting down the MirrorMaestro"}
+{"t":{"$date":"2023-01-23T19:01:53.431+00:00"},"s":"I",  "c":"SHARDING", "id":4784902, "ctx":"SignalHandler","msg":"Shutting down the WaitForMajorityService"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"CONTROL",  "id":4784903, "ctx":"SignalHandler","msg":"Shutting down the LogicalSessionCache"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"NETWORK",  "id":20562,   "ctx":"SignalHandler","msg":"Shutdown: going to close listening sockets"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"NETWORK",  "id":23017,   "ctx":"listener","msg":"removing socket file","attr":{"path":"/tmp/mongodb-27017.sock"}}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"NETWORK",  "id":4784905, "ctx":"SignalHandler","msg":"Shutting down the global connection pool"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"CONTROL",  "id":4784906, "ctx":"SignalHandler","msg":"Shutting down the FlowControlTicketholder"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"-",        "id":20520,   "ctx":"SignalHandler","msg":"Stopping further Flow Control ticket acquisitions."}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"CONTROL",  "id":4784908, "ctx":"SignalHandler","msg":"Shutting down the PeriodicThreadToAbortExpiredTransactions"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"REPL",     "id":4784909, "ctx":"SignalHandler","msg":"Shutting down the ReplicationCoordinator"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"SHARDING", "id":4784910, "ctx":"SignalHandler","msg":"Shutting down the ShardingInitializationMongoD"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"REPL",     "id":4784911, "ctx":"SignalHandler","msg":"Enqueuing the ReplicationStateTransitionLock for shutdown"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"-",        "id":4784912, "ctx":"SignalHandler","msg":"Killing all operations for shutdown"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"-",        "id":4695300, "ctx":"SignalHandler","msg":"Interrupted all currently running operations","attr":{"opsKilled":3}}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"TENANT_M", "id":5093807, "ctx":"SignalHandler","msg":"Shutting down all TenantMigrationAccessBlockers on global shutdown"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"COMMAND",  "id":4784913, "ctx":"SignalHandler","msg":"Shutting down all open transactions"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"REPL",     "id":4784914, "ctx":"SignalHandler","msg":"Acquiring the ReplicationStateTransitionLock for shutdown"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"INDEX",    "id":4784915, "ctx":"SignalHandler","msg":"Shutting down the IndexBuildsCoordinator"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"NETWORK",  "id":4784918, "ctx":"SignalHandler","msg":"Shutting down the ReplicaSetMonitor"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"SHARDING", "id":4784921, "ctx":"SignalHandler","msg":"Shutting down the MigrationUtilExecutor"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"ASIO",     "id":22582,   "ctx":"MigrationUtil-TaskExecutor","msg":"Killing all outstanding egress activity."}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"COMMAND",  "id":4784923, "ctx":"SignalHandler","msg":"Shutting down the ServiceEntryPoint"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"CONTROL",  "id":4784925, "ctx":"SignalHandler","msg":"Shutting down free monitoring"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"CONTROL",  "id":20609,   "ctx":"SignalHandler","msg":"Shutting down free monitoring"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"CONTROL",  "id":4784927, "ctx":"SignalHandler","msg":"Shutting down the HealthLog"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"CONTROL",  "id":4784928, "ctx":"SignalHandler","msg":"Shutting down the TTL monitor"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"INDEX",    "id":3684100, "ctx":"SignalHandler","msg":"Shutting down TTL collection monitor thread"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"INDEX",    "id":3684101, "ctx":"SignalHandler","msg":"Finished shutting down TTL collection monitor thread"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"CONTROL",  "id":6278511, "ctx":"SignalHandler","msg":"Shutting down the Change Stream Expired Pre-images Remover"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"CONTROL",  "id":4784929, "ctx":"SignalHandler","msg":"Acquiring the global lock for shutdown"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"CONTROL",  "id":4784930, "ctx":"SignalHandler","msg":"Shutting down the storage engine"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"STORAGE",  "id":22320,   "ctx":"SignalHandler","msg":"Shutting down journal flusher thread"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"STORAGE",  "id":22321,   "ctx":"SignalHandler","msg":"Finished shutting down journal flusher thread"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"STORAGE",  "id":22322,   "ctx":"SignalHandler","msg":"Shutting down checkpoint thread"}
+{"t":{"$date":"2023-01-23T19:01:53.432+00:00"},"s":"I",  "c":"STORAGE",  "id":22323,   "ctx":"SignalHandler","msg":"Finished shutting down checkpoint thread"}
+{"t":{"$date":"2023-01-23T19:01:53.433+00:00"},"s":"I",  "c":"STORAGE",  "id":20282,   "ctx":"SignalHandler","msg":"Deregistering all the collections"}
+{"t":{"$date":"2023-01-23T19:01:53.433+00:00"},"s":"I",  "c":"STORAGE",  "id":22261,   "ctx":"SignalHandler","msg":"Timestamp monitor shutting down"}
+{"t":{"$date":"2023-01-23T19:01:53.433+00:00"},"s":"I",  "c":"STORAGE",  "id":22317,   "ctx":"SignalHandler","msg":"WiredTigerKVEngine shutting down"}
+{"t":{"$date":"2023-01-23T19:01:53.433+00:00"},"s":"I",  "c":"STORAGE",  "id":22318,   "ctx":"SignalHandler","msg":"Shutting down session sweeper thread"}
+{"t":{"$date":"2023-01-23T19:01:53.433+00:00"},"s":"I",  "c":"STORAGE",  "id":22319,   "ctx":"SignalHandler","msg":"Finished shutting down session sweeper thread"}
+{"t":{"$date":"2023-01-23T19:01:53.433+00:00"},"s":"I",  "c":"STORAGE",  "id":4795902, "ctx":"SignalHandler","msg":"Closing WiredTiger","attr":{"closeConfig":"leak_memory=true,"}}
+{"t":{"$date":"2023-01-23T19:01:53.468+00:00"},"s":"I",  "c":"STORAGE",  "id":4795901, "ctx":"SignalHandler","msg":"WiredTiger closed","attr":{"durationMillis":35}}
+{"t":{"$date":"2023-01-23T19:01:53.468+00:00"},"s":"I",  "c":"STORAGE",  "id":22279,   "ctx":"SignalHandler","msg":"shutdown: removing fs lock..."}
+{"t":{"$date":"2023-01-23T19:01:53.468+00:00"},"s":"I",  "c":"-",        "id":4784931, "ctx":"SignalHandler","msg":"Dropping the scope cache for shutdown"}
+{"t":{"$date":"2023-01-23T19:01:53.468+00:00"},"s":"I",  "c":"FTDC",     "id":20626,   "ctx":"SignalHandler","msg":"Shutting down full-time diagnostic data capture"}
+{"t":{"$date":"2023-01-23T19:01:53.473+00:00"},"s":"I",  "c":"CONTROL",  "id":20565,   "ctx":"SignalHandler","msg":"Now exiting"}
+{"t":{"$date":"2023-01-23T19:01:53.473+00:00"},"s":"I",  "c":"CONTROL",  "id":23138,   "ctx":"SignalHandler","msg":"Shutting down","attr":{"exitCode":0}}
+nebula@sytem:~/Imágenes/curso docker$ 
+
+PARA DESCARGAR SI NO EXISTE LA IMAGEN Y LA EJECUTA:
+docker run mongo
+docker run  -d mongo
+nebula@sytem:~/Imágenes/curso docker$ docker run  -d mongo
+55bbd1890d04136097b467a3176344b88f609db06855a11da98ba5c7fd82d3f4
+nebula@sytem:~/Imágenes/curso docker$
+
+nebula@sytem:~/Imágenes/curso docker$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS       NAMES
+55bbd1890d04   mongo     "docker-entrypoint.s…"   24 seconds ago   Up 23 seconds   27017/tcp   gifted_kirch
+nebula@sytem:~/Imágenes/curso docker$ 
+
+nebula@sytem:~/Imágenes/curso docker$ docker stop 55bbd1890d04
+55bbd1890d04
+nebula@sytem:~/Imágenes/curso docker
+
+INICIAR DOCKER IMAGEN MONGO:
+docker run --name monguito -p27017:27017 -d mongo
+
+nebula@sytem:~/Imágenes/curso docker$ docker run --name monguito -p27017:27017 -d mongo
+c40b58a4c3daf9cd963a0fcf4a2aae6ec88a2e2cbb8914f98d07b36ec721e82a
+nebula@sytem:~/Imágenes/curso docker$ 
+
+nebula@sytem:~/Imágenes/curso docker$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS                     PORTS     NAMES
+c40b58a4c3da   mongo     "docker-entrypoint.s…"   About a minute ago   Exited (0) 8 seconds ago             monguito
+55bbd1890d04   mongo     "docker-entrypoint.s…"   8 minutes ago        Exited (0) 7 minutes ago             gifted_kirch
+3b7f088ebc57   mongo     "docker-entrypoint.s…"   9 minutes ago        Exited (0) 9 minutes ago             interesting_wescoff
+nebula@sytem:~/Imágenes/curso docker$ docker rm c40b58a4c3da
+c40b58a4c3da
+nebula@sytem:~/Imágenes/curso docker$ docker rm gifted_kirch
+gifted_kirch
+nebula@sytem:~/Imágenes/curso docker$ docker rm interesting_wescoff
+interesting_wescoff
+nebula@sytem:~/Imágenes/curso docker$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+nebula@sytem:~/Imágenes/curso docker$ 
+
+
+
+INICIAMOS CONTENDER DOCKER CON PUERTO PARAA PODER ACCEDER:
+nebula@sytem:~/Imágenes/curso docker$ docker create -p27017:27017 --name monguito -e MONGO_INITDB_ROOT_USERNAME=nico -e MONGO_INITDB_ROOT_PSASSWORD=password mongo
+c73bac81ea9e80e411682fc9bcdfa7bb9470b310a14a8c0e3f3bb92f5c39af5b
+nebula@sytem:~/Imágenes/curso docker$ 
+
+
+
+
+
+
+

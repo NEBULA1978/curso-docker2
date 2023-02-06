@@ -1,0 +1,84 @@
+7)
+        echo ""
+        
+        read foo
+        ;;
+
+8)
+        echo ""
+        
+        read foo
+        ;;
+
+9)
+        echo ""
+        
+        read foo
+        ;;
+
+10)
+        echo ""
+        
+        read foo
+        ;;
+
+11)
+        echo ""
+        
+        read foo
+        ;;
+
+12)
+        echo ""
+        
+        read foo
+        ;;
+
+13)
+        echo ""
+        
+        read foo
+        ;;
+
+14)
+        echo ""
+        
+        read foo
+        ;;
+
+15)
+        echo ""
+        
+        read foo
+        ;;
+
+16)
+        echo ""
+        
+        read foo
+        ;;
+
+17)
+        echo ""
+        
+        read foo
+        ;;
+
+18)
+        echo ""
+        
+        read foo
+        ;;
+
+19)
+        echo ""
+        
+        read foo
+        ;;
+
+20)
+        echo ""
+        
+        read foo
+        ;;
+
